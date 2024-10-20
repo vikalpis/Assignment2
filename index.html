@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Thought Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .journey-board {
+            transition: transform 0.3s ease;
+        }
+        .notice-board {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transition: transform 0.3s ease;
+
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-10 h-16 flex items-center px-4">
+        <button id="menuToggle" class="mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div class="flex items-center">
+            <img src="https://deepthought.education/assets/images/logo/logo.svg" alt="" class="h-8 mr-2">
+            <!-- <span class="text-xl font-bold">
+                <span class="text-black">DEEP</span>
+                <span class="text-blue-600">THOUGHT</span>
+            </span> -->
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen pt-16">
+        <!-- Collapsible Journey Board -->
+        <aside id="journeyBoard" class="journey-board fixed left-0 top-16 bottom-0 w-64 bg-white shadow-md transform -translate-x-full">
+            <div class="p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Journey Board</h2>
+                    <button id="closeJourneyBoard">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <ul id="journeyList" class="space-y-2"></ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-between items-center mb-6">
+                <h1 id="projectTitle" class="text-3xl font-bold text-blue-600"></h1>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded">Submit Task</button>
+            </header>
+
+            <div id="projectDescription" class="bg-blue-100 p-4 rounded-lg mb-6"></div>
+
+            <div id="assetGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </main>
+
+        <!-- Notice Board Tab -->
+        <div class="bg-gray-800 text-white  h-1/2 w-16 rounded-lg py-4 flex items-center sticky top-16">
+            <span class="notice-board transform rotate-180">Notice Board</span>
+        </div>
+    </div>
+
+    <script>
+        // Constant project data
+        const projectData = {
+            "_id": {
+                "$oid": "63b64dc9e3b230ebb60a495d"
+            },
+            "_key": "topic:2085",
+            "category": "Course",
+            "cid": {
+                "$numberDouble": "NaN"
+            },
+            "commitment": "4 hours",
+            "commitment_type": "custom",
+            "deadline": "",
+            "description": "<p>Have you ever thought, Pareto's Law can be applied to cooking? Your thinking starts when you start thinking beyond your thinking.</p>\n<p>Let's prepare Sandwiches, we will use Pareto's Law. That's an 80-20 approach.<br>80% of the time in researching, and planning and 20% of the time in implementation.</p>\n<p>So for preparing sandwiches, we need vegetables, bread, cheese, butter and much more. So initially we collect all the stuff and then chop the vegetables, grate the cheese, and make a mash of potato. So this all comes in 80% and then comes 20% where we will roast the bread, spread the sauce, place the mash put some cheese, and heat it for a while and our sandwich is ready.</p>\n<p>Similarly while creating any functionality 80% of the time is spent on consequences that might appear, some parameters we have to take care of, the scope of the variable, and some dependent functions, and then 20% comes from implementation.</p>\n<p>Let's start thinking together, and search for how you can get the essence of project management.</p>",
+            "faqs": [],
+            "globalTags": [],
+            "isActive": true,
+            "lastposttime": 0,
+            "learning_outcomes": [
+                "Bare minimum knowledge of project management",
+                "4SA Concept",
+                "Would be able to handle any project efficiently"
+            ],
+            "mainPid": 0,
+            "postcount": 0,
+            "pre_requisites": [
+                "An open mind to learn any concept",
+                "Thought of Unlearning and Relearning "
+            ],
+            "project_image": "https://bs-uploads.toptal.io/blackfish-uploads/components/seo/content/og_image_file/og_image/1114276/0413_What_is_a_Technical_Project_Manager_Luke_Social-21e35c2d76465934c0f844c396db762a.png",
+            "short_description": "You can learn project management by applying the simple methods of project management. How you can apply project management in each and every step of your deliverables? Let's figure it out together",
+            "slug": "2085/technical-project-management",
+            "status": "published",
+            "tasks": [
+                {
+                    "task_id": 18882,
+                    "task_title": "Explore the world of management",
+                    "task_description": "As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling and completion. How? Do you want to manage each and every step of your life?",
+                    "status": "notworkyet",
+                    "assets": [
+                        {
+                            "asset_id": 18883,
+                            "asset_title": "Technical Project Management",
+                            "asset_description": "Story of Alignment\r\nScope of Agility\r\nSpecific Accountable \r\nStaggering Approach\r\n\r\n",
+                            "asset_content": " https://www.youtube.com/embed/TiMRwri1xJ8",
+                            "asset_type": "display_asset",
+                            "asset_content_type": "video"
+                        },
+                        {
+                            "asset_id": 18884,
+                            "asset_title": "Threadbuild",
+                            "asset_description": "Watch the video and thread build, and jot out key threads while watching that video.",
+                            "asset_content": " ",
+                            "asset_type": "input_asset",
+                            "asset_content_type": "threadbuilder"
+                        },
+                        {
+                            "asset_id": 18885,
+                            "asset_title": "Structure you pointers ",
+                            "asset_description": "Write a 400-500 word article, from your thread. Publish your understanding, and showcase your learning to the entire world.",
+                            "asset_content": " ",
+                            "asset_type": "input_asset",
+                            "asset_content_type": "article"
+                        },
+                        {
+                            "asset_id": 18886,
+                            "asset_title": "4SA Method",
+                            "asset_description": "To explore more read more",
+                            "asset_content": " https://dtthon.deepthought.education/sharer?id=01aa3cff-db8e-8d9d-afc0-1671715937878",
+                            "asset_type": "display_asset",
+                            "asset_content_type": "article"
+                        }
+                    ]
+                }
+            ],
+            "tid": 2085,
+            "timestamp": 1672891849700,
+            "title": "Technical Project Management",
+            "type": "project",
+            "uid": 100,
+            "viewcount": 0,
+            "publishedAt": 1672893847792
+        };
+
+        function renderProjectData() {
+            document.getElementById('projectTitle').textContent = projectData.title;
+            document.getElementById('projectDescription').innerHTML = projectData.description;
+
+            const journeyList = document.getElementById('journeyList');
+            const assetGrid = document.getElementById('assetGrid');
+
+            projectData.tasks.forEach((task, taskIndex) => {
+                const taskItem = document.createElement('li');
+                taskItem.innerHTML = `
+                    <a href="#" class="text-blue-600 hover:underline">${task.task_title}</a>
+                    <ul class="ml-4 mt-2 space-y-1">
+                        ${task.assets.map(asset => `<li class="text-gray-600">${asset.asset_title}</li>`).join('')}
+                    </ul>
+                `;
+                journeyList.appendChild(taskItem);
+
+                task.assets.forEach((asset, assetIndex) => {
+                    const assetElement = document.createElement('div');
+                    assetElement.className = 'bg-white rounded-lg shadow-md overflow-hidden';
+                    assetElement.innerHTML = `
+                        <div class="bg-gray-800 text-white p-4 flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">${asset.asset_title}</h3>
+                            <button class="text-gray-300 hover:text-white expand-btn" data-asset-id="${asset.asset_id}">▼</button>
+                        </div>
+                        <div class="p-4 asset-content" style="display: none;">
+                            <p class="text-sm text-gray-600 mb-4">${asset.asset_description}</p>
+                            ${renderAssetContent(asset)}
+                        </div>
+                    `;
+                    assetGrid.appendChild(assetElement);
+                });
+            });
+
+            // Add event listeners to expand buttons
+            document.querySelectorAll('.expand-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.closest('.bg-white').querySelector('.asset-content');
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                    btn.textContent = content.style.display === 'none' ? 'ⓘ'  : 'ⓘ ';
+                });
+            });
+        }
+
+        function renderAssetContent(asset) {
+            switch (asset.asset_content_type) {
+                case 'video':
+                    return `<div class="aspect-w-16 aspect-h-9">
+                                <iframe src="${asset.asset_content}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>`;
+                case 'threadbuilder':
+                    return `<div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold mb-2">Thread A</h4>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <input type="text" placeholder="Enter Text Here" class="border p-2 rounded">
+                                        <input type="text" placeholder="Enter Text Here" class="border p-2 rounded">
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="p-2 border rounded">💡</button>
+                                    <button class="p-2 border rounded">💻</button>
+                                    <button class="p-2 border rounded">📷</button>
+                                    <button class="p-2 border rounded">🔗</button>
+                                    <select class="border p-2 rounded">
+                                        <option>Select Category</option>
+                                    </select>
+                                    <select class="border p-2 rounded">
+                                        <option>Select Process</option>
+                                    </select>
+                                </div>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">+ Sub-thread</button>
+                                <textarea placeholder="Enter Text Here" class="border p-2 rounded w-full" rows="3"></textarea>
+                            </div>`;
+                case 'article':
+                    return `<div class="space-y-4">
+                                <input type="text" placeholder="Title" class="border p-2 rounded w-full">
+                                <div class="border rounded p-2">
+                                    <div class="flex space-x-2 mb-2">
+                                        <button>File</button>
+                                        <button>Edit</button>
+                                        <button>View</button>
+                                        <button>Insert</button>
+                                        <button>Format</button>
+                                        <button>Tools</button>
+                                        <button>Table</button>
+                                        <button>Help</button>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button>↩</button>
+                                        <button>↪</button>
+                                        <button>□</button>
+                                        <button>📷</button>
+                                        <select>
+                                            <option>Paragraph</option>
+                                        </select>
+                                        <button>⋯</button>
+                                    </div>
+                                </div>
+                            </div>`;
+                default:
+                    return `<p>${asset.asset_content || 'No content available'}</p>`;
+            }
+        }
+
+        // Toggle Journey Board
+        const journeyBoard = document.getElementById('journeyBoard');
+        const menuToggle = document.getElementById('menuToggle');
+        const closeJourneyBoard = document.getElementById('closeJourneyBoard');
+
+        menuToggle.addEventListener('click', () => {
+            journeyBoard.classList.toggle('-translate-x-full');
+        });
+
+        closeJourneyBoard.addEventListener('click', () => {
+            journeyBoard.classList.add('-translate-x-full');
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', renderProjectData);
+    </script>
+</body>
+</html>
